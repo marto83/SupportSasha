@@ -1,0 +1,30 @@
+﻿@model SupportSasha.Donations.Models.DonationAttempt
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Donate</h2>
+
+
+<div class="donationOption">
+@using (var form = Html.BeginForm("Donate", "Donations")) {
+    
+    <div>@Html.LabelFor(x => x.Name)
+    @Html.TextBoxFor(x => x.Name)
+    </div>
+    <div>
+    @Html.LabelFor(x => x.Email)
+    @Html.TextBoxFor(x => x.Email)
+       </div>
+    <div>
+    @Html.LabelFor(x => x.Amount)
+    @Html.TextBoxFor(x => x.Amount)
+    </div>
+    @Html.HiddenFor(x => x.Provider, new { value = "paypal" })
+
+    <button>Donate</button>
+}
+
+</div>
