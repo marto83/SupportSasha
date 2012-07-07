@@ -438,16 +438,11 @@ textarea
 
 .swim .swimmerInfo
 {
-    float: left;
-    width: 200px;
-}
-
-
-.swim .donate  
-{
     text-align: center;
-    padding-top: 5px;
+    margin-top: 20px;
+        width: 200px;
 }
+
 
 .swimmerProgress 
 {
@@ -500,7 +495,7 @@ textarea
 /* http://hellohappy.org/css3-buttons/ */
 /* thoughtbot (inspired by thoughtbot.com)
 *******************************************************************************/
-button.donate {
+button.donate, a.donate {
   background-color: #ee432e;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ee432e), color-stop(50%, #c63929), color-stop(50%, #b51700), color-stop(100%, #891100));
   background-image: -webkit-linear-gradient(top, #ee432e 0%, #c63929 50%, #b51700 50%, #891100 100%);
@@ -522,7 +517,12 @@ button.donate {
   text-align: center;
   text-shadow: 0px -1px 1px rgba(0, 0, 0, 0.8);
   width: 150px; }
-  button.thoughtbot:hover {
+ a.donate 
+ {
+     margin-top: 10px;
+     padding: 5px 15px;
+ }
+  button.thoughtbot:hover, a.thoughtbot:hover {
     background-color: #f37873;
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f37873), color-stop(50%, #db504d), color-stop(50%, #cb0500), color-stop(100%, #a20601));
     background-image: -webkit-linear-gradient(top, #f37873 0%, #db504d 50%, #cb0500 50%, #a20601 100%);
@@ -531,7 +531,7 @@ button.donate {
     background-image: -o-linear-gradient(top, #f37873 0%, #db504d 50%, #cb0500 50%, #a20601 100%);
     background-image: linear-gradient(top, #f37873 0%, #db504d 50%, #cb0500 50%, #a20601 100%);
     cursor: pointer; }
-  button.thoughtbot:active {
+  button.thoughtbot:active, button.thoughtbot:acvite {
     background-color: #d43c28;
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d43c28), color-stop(50%, #ad3224), color-stop(50%, #9c1500), color-stop(100%, #700d00));
     background-image: -webkit-linear-gradient(top, #d43c28 0%, #ad3224 50%, #9c1500 50%, #700d00 100%);

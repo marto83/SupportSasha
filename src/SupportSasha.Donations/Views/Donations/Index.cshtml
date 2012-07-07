@@ -9,7 +9,7 @@
 
 
 <div class="donationOption">
-@using (var form = Html.BeginForm("Donate", "Donations")) {
+@using (var form = Html.BeginForm()) {
     
     <div>@Html.LabelFor(x => x.Name)
     @Html.TextBoxFor(x => x.Name)
@@ -20,11 +20,16 @@
        </div>
     <div>
     @Html.LabelFor(x => x.Amount)
+    @Html.RadioButtonFor(x => x.Amount, "20") £20 
+    @Html.RadioButtonFor(x => x.Amount, "10") £10
+    @Html.RadioButtonFor(x => x.Amount, "5") £5
+    <br />
+    <label>Other amount</label>
     @Html.TextBoxFor(x => x.Amount)
     </div>
     @Html.HiddenFor(x => x.Provider, new { value = "paypal" })
 
-    <button>Donate</button>
+    <button class="donate">Donate by Paypal</button>
 }
 
 </div>

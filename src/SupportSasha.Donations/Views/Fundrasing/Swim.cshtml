@@ -11,22 +11,25 @@
                 Luke Sampson</div>
             <img src="../../Content/Images/200x200.gif" alt="Luke" />
             <div class="swimmerInfo">
-                <div class="donate">
-                <button class="donate">Sponsor me!</button>
-    </div>
-                </div>
+                @Html.ActionLink("Sponsor me", "Index", "Donations", new { campaign = "Swim", swimmer = "Luke" }, new { @class = "donate" })
+            </div>
+        </div>
+        <div class="swimInfo">
+        <p>
+        Both of us are going to do 1000 lengths each which is 3.7 miles. Help us support sasha by buying one or several swim lengths.
+        </p>
         </div>
         <div class="rightSwimmer swimmer">
             <div class="swimmerName">
-                Martin Georgiev</div>
+                Ruth</div>
             <img src="../../Content/Images/200x200.gif" alt="Right Swimmer" />
             <div class="swimmerInfo">
-            <div class="donate"><button class="donate">Sponsor me!</button></div>
-                </div>
+            @Html.ActionLink("Sponsor me", "Index", "Donations", new { campaign = "Swim", swimmer = "Ruth" }, new { @class = "donate" })
+            </div>
         </div>
     </div>
     <div class="swimmerProgress">
-        <div class="swimmerProgressInfo">Luke's progress</div>
+        <div class="swimmerProgressInfo">Fundraising progress</div>
         
 
         <div class="meter blue nostripes">

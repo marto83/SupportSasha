@@ -22,6 +22,18 @@ namespace SupportSasha.Donations
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                "THank you", // Route name
+                "Donations/thankyou", // URL with parameters
+                new { controller = "Donations", action = "ThankYou" } // Parameter defaults
+            );
+
+            routes.MapRoute(
+                "Donations", // Route name
+                "Donations/{campaign}", // URL with parameters
+                new { controller = "Donations", action = "Index", campaign = UrlParameter.Optional } // Parameter defaults
+            );
+
+            routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults

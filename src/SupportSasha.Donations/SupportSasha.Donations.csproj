@@ -152,6 +152,7 @@
     <None Include="Content\fonts\TEMPSITC.woff" />
     <Content Include="Views\Fundrasing\Swim.cshtml" />
     <Content Include="Views\Donations\Index.cshtml" />
+    <Content Include="Views\Donations\ThankYou.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
