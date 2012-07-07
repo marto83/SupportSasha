@@ -7,9 +7,6 @@ using System.Web.Routing;
 
 namespace SupportSasha.Donations
 {
-    // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
-    // visit http://go.microsoft.com/?LinkId=9394801
-
     public class MvcApplication : System.Web.HttpApplication
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
@@ -36,9 +33,10 @@ namespace SupportSasha.Donations
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+                new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                null, 
+                new string[] {"SupportSasha.Donations.Controllers"} // Parameter defaults
             );
-
         }
 
         protected void Application_Start()

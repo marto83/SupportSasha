@@ -10,7 +10,6 @@
 
 <div class="donationOption">
 @using (var form = Html.BeginForm()) {
-    
     <div>@Html.LabelFor(x => x.Name)
     @Html.TextBoxFor(x => x.Name)
     </div>
@@ -27,7 +26,11 @@
     <label>Other amount</label>
     @Html.TextBoxFor(x => x.Amount)
     </div>
-    @Html.HiddenFor(x => x.Provider, new { value = "paypal" })
+    <div>
+    @Html.LabelFor(x => x.Message)
+    @Html.TextAreaFor(x => x.Message)
+    </div>
+    @Html.HiddenFor(x => x.CampaignName, new { value = ViewBag.Campaign })
 
     <button class="donate">Donate by Paypal</button>
 }

@@ -1,0 +1,23 @@
+﻿@model SupportSasha.Donations.Models.Target
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (var form = Html.BeginForm())
+{
+    <div>
+    @Html.LabelFor(x => x.Amount)
+    @Html.TextBoxFor(x => x.Amount)
+    </div>
+    
+    <div>
+    @Html.LabelFor(x => x.Description)
+    @Html.TextBoxFor(x => x.Description, new { rows = "20", columns = "10" })
+    </div>
+    
+    <button>Create</button>
+}

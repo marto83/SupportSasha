@@ -1,0 +1,24 @@
+﻿@model IEnumerable<SupportSasha.Donations.Models.Target>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Donation Targets</h2>
+
+@foreach (var target in Model)
+{
+    <div class="target">
+    <span>@target.Amount</span>
+    @target.Description
+    </div>
+    
+    using (Html.BeginForm("Delete", "Targets"))
+    {
+         @Html.Hidden("Id", target.Id);
+         <button onclick="return confirm('Are you sure');">Delete</button>                                      
+    }
+}
+
+@Html.ActionLink("Add target", "Create")

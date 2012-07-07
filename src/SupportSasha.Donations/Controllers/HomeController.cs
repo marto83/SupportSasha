@@ -7,14 +7,14 @@ using SupportSasha.Donations.Models;
 
 namespace SupportSasha.Donations.Controllers
 {
-    
 
-    public class HomeController : Controller
+
+    public class HomeController : BaseController
     {
         public ActionResult Index()
         {
-            IEnumerable<Target> targets = GetTargets();
-            IEnumerable<Donation> donations = GetDonations();
+            IEnumerable<Target> targets = Session.Query<Target>().ToList();
+            IEnumerable<DonationAttempt> donations = Session.Query<DonationAttempt>().Where(x => x.Confirmed);
             HomeViewModel model = new HomeViewModel();
             decimal targetsSum = targets.Sum(x => x.Amount);
             model.TargetsTotal = targetsSum;
@@ -23,25 +23,6 @@ namespace SupportSasha.Donations.Controllers
             decimal donationsSum = donations.Sum(x => x.Amount);
             model.ProgressPercentage = (double)Math.Round(donationsSum / targetsSum * 100, 2);
             return View(model);
-        }
-
-        private IEnumerable<Target> GetTargets()
-        {
-            return new List<Target> { 
-                new Target { Amount = 5000, Description = "Dolphin therapy"},
-                new Target { Amount = 11000, Description = "Stem cell therapy" }
-            };
-        }
-
-        private IEnumerable<Donation> GetDonations()
-        {
-            return new List<Donation>
-            {
-                new Donation { Name = "Martin", Message = "Good luck Sasha", Amount = 10 },
-                new Donation { Name = "George", Message = "Enjoy swimming with the dolphins", Amount = 40 },
-                new Donation { Name = "Lindsey", Message = "", Amount = 100 },
-                new Donation { Name = "Anonymous", Message = "", Amount = 200 }
-            };
         }
     }
 }

@@ -1,0 +1,13 @@
+﻿@model SupportSasha.Donations.Models.Target
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>Id: @Model.Id</div>
+<div>Amount: @Model.Amount</div>
+<div>Description</div>
+@Model.Description

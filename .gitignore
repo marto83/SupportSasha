@@ -1,6 +1,15 @@
 # Build Folders (you can keep bin if you'd like, to store dlls and pdbs)
+_ReSharper.*
+*.suo
+*.ReSharper.user
+[Oo]bj
+*.cache
 bin
-obj
-
+*.csproj.user
+build/prepare
+App_Data/
+App_Data/*
+*.orig
+build/*
 # mstest test results
 TestResults
