@@ -1,0 +1,14 @@
+﻿h1, h2, h3, h4 
+{
+    font-family: Sasha, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.sashasFont
+{ 
+    font-family: Sasha, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.left-sidebar h1
+{
+    text-align: center;
+}

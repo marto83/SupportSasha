@@ -21,13 +21,17 @@ namespace SupportSasha.Donations
             routes.MapRoute(
                 "THank you", // Route name
                 "Donations/thankyou", // URL with parameters
-                new { controller = "Donations", action = "ThankYou" } // Parameter defaults
+                new { controller = "Donations", action = "ThankYou" },
+                null,
+                new string[] { "SupportSasha.Donations.Controllers" }
             );
 
             routes.MapRoute(
                 "Donations", // Route name
                 "Donations/{campaign}", // URL with parameters
-                new { controller = "Donations", action = "Index", campaign = UrlParameter.Optional } // Parameter defaults
+                new { controller = "Donations", action = "Index", campaign = UrlParameter.Optional },
+                null,
+                new string[] { "SupportSasha.Donations.Controllers" }
             );
 
             routes.MapRoute(
@@ -35,7 +39,7 @@ namespace SupportSasha.Donations
                 "{controller}/{action}/{id}", // URL with parameters
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 null, 
-                new string[] {"SupportSasha.Donations.Controllers"} // Parameter defaults
+                new string[] {"SupportSasha.Donations.Controllers"}
             );
         }
 

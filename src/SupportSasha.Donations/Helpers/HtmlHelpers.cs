@@ -23,4 +23,22 @@ namespace SupportSasha.Donations.Helpers
             return new MvcHtmlString(builder.ToString());
         }
     }
+
+    public static class UrlHelpers
+    {
+        public static dynamic Javascript(this UrlHelper helper, string path)
+        {
+            return helper.Content("~/Content/Scipts/" + path);
+        }
+
+        public static dynamic Css(this UrlHelper helper, string path)
+        {
+            return helper.Content("~/Content/Styles/" + path);
+        }
+
+        public static dynamic Image(this UrlHelper helper, string path)
+        {
+            return helper.Content("~/Content/Styles/" + path);
+        }
+    }
 }
