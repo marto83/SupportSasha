@@ -1,50 +1,58 @@
 ﻿@model SupportSasha.Donations.Models.HomeViewModel
-
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
+<div class="hero-unit">
+    <h1>
+        Welcome</h1>
+    <img src="@Url.Image("SashaOnSwing.jpg")" />
+    <p>
+        I'm Sasha and I have cerebral palsy. Thank you for visiting my donations website.
+        Currently I am fundraising for Dolphin and Stem cell therapy. I also have a blog
+        where you can find out more about me as well as helpful resouces</p>
+    <p>
+    @Html.ActionLink("Donate", "Index", "Donations", null, new { @class = "btn btn-primary btn-large" }) 
+        &nbsp;&nbsp; or&nbsp;&nbsp; @Html.ActionLink("Learn more", "Index", "Targets", null, new { @class = "btn" })</p>
+</div>
 <section id="donationTarget">
-
-
 <div class="progressWrapper">
     <h2>Fundraising target: &pound;@Model.TargetsTotal</h2>
-        <div class="meter">
-			<span style="width: @Model.ProgressPercentage%"></span>
-		</div>
+    <div class="progress progress-striped">
+  <div class="bar"
+       style="width:  @Model.ProgressPercentage%;"></div>
+</div>
+    
     @Html.ActionLink("more information", "Targets", null, new { @class = "targetBreakdown" })
     
 </div>
 
 </section>
-
 <br />
-
 <div class="donationsWrapper">
-<h3>Donations</h3>
-<ul class="donationList">
-@foreach (var donation in Model.Donations)
-{
-    <li>
-        @GetDonationImage(@donation.Image)
-        <div class="donationMessage">
-        @Html.WrapWith(donation.Message, "p")
-        <span class="small">Donated by <strong>@donation.Name</strong> on @Html.FormatDate(donation.Date)</span>
-        </div>
-        <div class="donationAmount"><span class="large">&pound;@donation.Amount</span></div>
-    </li>
-}
-</ul>
+    <h3>
+        Donations</h3>
+    <ul class="donationList">
+        @foreach (var donation in Model.Donations)
+        {
+            <li>
+                @GetDonationImage(@donation.Image)
+                <div class="donationMessage">
+                    @Html.WrapWith(donation.Message, "p")
+                    <span class="small">Donated by <strong>@donation.Name</strong> on @Html.FormatDate(donation.Date)</span>
+                </div>
+                <div class="donationAmount">
+                    <span class="large">&pound;@donation.Amount</span></div>
+            </li>
+        }
+    </ul>
 </div>
-
 @functions {
- dynamic GetDonationImage(string image)
- {
-     string src = image;
-     if (string.IsNullOrWhiteSpace(image))
-        src = "/Content/images/happy-face.png";
-    return new MvcHtmlString(String.Format("<img src=\"{0}\" class=\"donationImage\" />", src));
- }
+    dynamic GetDonationImage(string image)
+    {
+        string src = image;
+        if (string.IsNullOrWhiteSpace(image))
+            src = "/Content/images/happy-face.png";
+        return new MvcHtmlString(String.Format("<img src=\"{0}\" class=\"donationImage\" />", src));
+    }
 }

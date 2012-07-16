@@ -12,3 +12,36 @@
 {
     text-align: center;
 }
+
+.hero-unit 
+{
+    position: relative;
+    padding-right: 230px;
+}
+
+.hero-unit img 
+{
+    position: absolute;
+    right: 15px;
+    top: 15px;   
+}
+
+.progressWrapper h2  
+{
+    margin-bottom: 15px;
+}
+
+.progressWrapper .progress 
+{
+    height: 42px;
+}
+
+.progressWrapper .bar
+{ 
+    height: 40px;
+}
+
+.progressWrapper .targetBreakdown 
+{
+    float: right;
+}

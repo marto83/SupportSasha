@@ -38,7 +38,7 @@ namespace SupportSasha.Donations.Helpers
 
         public static dynamic Image(this UrlHelper helper, string path)
         {
-            return helper.Content("~/Content/Styles/" + path);
+            return helper.Content("~/Content/Images/" + path);
         }
     }
 }
