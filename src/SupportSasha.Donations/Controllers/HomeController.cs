@@ -14,7 +14,7 @@ namespace SupportSasha.Donations.Controllers
         public ActionResult Index()
         {
             IEnumerable<Target> targets = Session.Query<Target>().ToList();
-            IEnumerable<DonationAttempt> donations = Session.Query<DonationAttempt>().Where(x => x.Confirmed);
+            IEnumerable<Donation> donations = Session.Query<Donation>().Where(x => x.Confirmed);
             HomeViewModel model = new HomeViewModel();
             decimal targetsSum = targets.Sum(x => x.Amount);
             model.TargetsTotal = targetsSum;

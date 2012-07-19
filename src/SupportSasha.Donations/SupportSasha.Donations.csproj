@@ -153,7 +153,6 @@
     <Compile Include="Areas\Admin\Controllers\TargetsController.cs" />
     <Compile Include="Code\ISignInService.cs" />
     <Compile Include="Code\SignInService.cs" />
-    <Compile Include="Models\User.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DonationsController.cs" />
@@ -166,11 +165,22 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\HtmlHelpers.cs" />
-    <Compile Include="Models\Donation.cs" />
-    <Compile Include="Models\DonationAttempt.cs" />
-    <Compile Include="Models\HomeViewModel.cs" />
-    <Compile Include="Models\SignInModel.cs" />
-    <Compile Include="Models\Target.cs" />
+    <Compile Include="Models\Donation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\DonationInput.cs" />
+    <Compile Include="Models\HomeViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\SignInModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Target.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="StructureMapControllerFactory.cs" />
@@ -256,6 +266,8 @@
     <Content Include="Areas\Admin\Views\Targets\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\_viewstart.cshtml" />
+    <Content Include="Areas\Admin\Views\Donations\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Donations\Create.cshtml" />
     <None Include="Content\fonts\TEMPSITC.eot" />
     <None Include="Content\fonts\TEMPSITC.otf" />
     <None Include="Content\fonts\TEMPSITC.ttf" />
@@ -264,6 +276,8 @@
     <Content Include="Views\Donations\Index.cshtml" />
     <Content Include="Views\Donations\ThankYou.cshtml" />
     <Content Include="Views\Account\Sign-In.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Donation.cshtml" />
+    <Content Include="Views\Shared\Message.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

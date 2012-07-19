@@ -1,0 +1,9 @@
+﻿@model string
+           
+@if (TempData.ContainsKey(Model))
+{
+    <div class="@Model">
+        <button class="close" data-dismiss="@Model">×</button>
+        @TempData[Model]
+    </div>
+}

@@ -1,0 +1,18 @@
+﻿@model IEnumerable<SupportSasha.Donations.Models.Donation>
+
+@section SideNav {
+    <ul class="nav nav-tabs nav-stacked">
+  <li>@Html.ActionLink("List", "Index")</li>
+  <li>@Html.ActionLink("Create", "Create")</li>
+</ul>
+}
+
+
+<h1>
+    Donations</h1>
+
+<div class="span6">
+<ul>
+@Html.DisplayForModel()
+</ul>
+</div>

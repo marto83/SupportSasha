@@ -1,0 +1,20 @@
+﻿@model SupportSasha.Donations.Models.DonationInput
+
+<h2>Create donation</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(x => x.Name)
+    
+    @Html.LabelFor(x => x.Email)
+    @Html.TextBoxFor(x => x.Email)
+    
+    @Html.LabelFor(x => x.Amount)
+    @Html.TextBoxFor(x => x.Amount)
+    
+    @Html.LabelFor(x => x.Message)
+    @Html.TextAreaFor(x => x.Message)
+    
+   <button type="submit" class="btn">Submit</button>
+}

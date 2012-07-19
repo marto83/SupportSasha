@@ -66,11 +66,14 @@
             <div class="span2  left-sidebar">
                 <img id="logo" src="/Content/Images/logo.png" class="logo" alt="Logo">
                 <h1>
-                    Support Sasha Donations</h1>
+                   Support Sasha Donations</h1>
+
+                @RenderSection("SideNav", false);
             </div>
             <!--/span-->
             <div class="span10">
-                
+                @Html.Partial("Message", "alert")
+                @Html.Partial("Message", "message")
                 
                 @RenderBody()
                

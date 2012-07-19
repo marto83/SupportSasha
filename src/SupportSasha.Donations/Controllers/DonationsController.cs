@@ -16,7 +16,7 @@ namespace SupportSasha.Donations.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(DonationAttempt attempt)
+        public ActionResult Index(Donation attempt)
         {
             attempt.Date = DateTimeOffset.Now.DateTime;
             Session.Store(attempt);
