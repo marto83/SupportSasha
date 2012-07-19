@@ -8,7 +8,7 @@ using SupportSasha.Donations.Controllers;
 
 namespace SupportSasha.Donations.Areas.Admin.Controllers
 {
-    public class TargetsController : BaseController
+    public class TargetsController : AdminController
     {
         //
         // GET: /Admin/Targets/

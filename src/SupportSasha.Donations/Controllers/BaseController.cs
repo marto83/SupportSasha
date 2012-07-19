@@ -26,7 +26,8 @@ namespace SupportSasha.Donations.Controllers
 
                     _documentStore = new EmbeddableDocumentStore
                     {
-                        ConnectionStringName = "RavenDB"
+                        ConnectionStringName = "RavenDB"//,
+                       // UseEmbeddedHttpServer = true
                     }.Initialize();
 
                     return _documentStore;

@@ -6,7 +6,8 @@ using System.Web.Mvc;
 
 namespace SupportSasha.Donations.Areas.Admin.Controllers
 {
-    public class HomeController : Controller
+    [Authorize]
+    public class HomeController : AdminController
     {
         //
         // GET: /Admin/Admin/

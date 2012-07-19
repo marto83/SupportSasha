@@ -2,8 +2,19 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
+
+@section Navigation {
+    <div class="nav-collapse">
+        <ul class="nav">
+            <li><a href="/Admin">Home</a></li>
+            <li class="active"><a href="/Admin/Targets">Targets</a></li>
+            <li><a href="/Admin/Donations">Donations</a></li>
+            <li><a href="/Account/sign-out">Sign out</a></li>
+        </ul>
+    </div>
+}
+
 
 <h2>Donation Targets</h2>
 

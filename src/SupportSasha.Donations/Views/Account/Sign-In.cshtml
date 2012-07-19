@@ -1,0 +1,36 @@
+﻿@model SupportSasha.Donations.Models.SignInModel
+@{
+    ViewBag.Title = "SignIn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>
+    SignIn</h2>
+<section>    
+                <div class="mod-dialogForm">
+                @using (Html.BeginForm("Sign-In", "Account", new { returnUrl = Model.ReturnUrl }))
+                {
+                        @Html.AntiForgeryToken()
+                        <h1 class="visuallyhidden">Login</h1>
+                            
+                       @Html.ValidationSummary("There were problems with your request.")
+                       
+                        <fieldset>
+                            <legend class="visuallyhidden">Your details</legend>
+                             
+                             @Html.LabelFor(model => model.Username, "Username:")
+                             @Html.TextBoxFor(model => model.Username)
+                            
+                                @Html.LabelFor(model => model.Password)
+                                @Html.PasswordFor(model => model.Password)
+                            
+                            <ul class="field-checkItems">
+                                <li class="field-item">
+                                    @Html.CheckBoxFor(model => model.RememberMe)
+                                    @Html.LabelFor(model => model.RememberMe, "Remember me")
+                                </li>
+                            </ul>
+                        </fieldset>
+                                                        <button class="buttonTright js-postForm" type="submit" name="Login" value="Login">Login</button>
+                }
+                </div>
+		</section>

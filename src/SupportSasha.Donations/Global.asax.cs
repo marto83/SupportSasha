@@ -4,11 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using StructureMap;
 
 namespace SupportSasha.Donations
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+        public static readonly string ApplicationName = "SupportSasha";
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
@@ -17,6 +19,8 @@ namespace SupportSasha.Donations
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.IgnoreRoute("Content/{*pathInfo}");
+            routes.IgnoreRoute("{*favicon}", new { favicon = @"(.*/)?favicon.ico(/.*)?" });
 
             routes.MapRoute(
                 "THank you", // Route name
@@ -49,6 +53,8 @@ namespace SupportSasha.Donations
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+            
+            ControllerBuilder.Current.SetControllerFactory(typeof(StructureMapControllerFactory));
         }
     }
 }
