@@ -30,7 +30,7 @@
             @Html.LabelFor(x => x.Message)
             @Html.TextAreaFor(x => x.Message, new { @class = "input" })
         </div>
-        @Html.HiddenFor(x => x.CampaignName, new { value = ViewBag.Campaign })
+        @Html.HiddenFor(x => x.Campaign, new { value = ViewBag.Campaign })
 
         <button class="donate">
             Donate by Paypal</button>
