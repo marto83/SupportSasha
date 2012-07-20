@@ -1,11 +1,11 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <title>@ViewBag.Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Sasha Georgiev donations pages"/>
+    <meta name="author" content="Martin Georgiev"/>
     <!-- Le styles -->
     <link href="@Url.Css("bootstrap.css")" rel="stylesheet">
     <link href="@Url.Css("fonts.css")" rel="stylesheet">
@@ -39,7 +39,7 @@
             <div class="container-fluid">
                 <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span
                     class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-                </a><a class="brand" href="#">Support Sasha</a>
+                </a><a class="brand" href="/">Support Sasha</a>
                 
                 @if (IsSectionDefined("Navigation")) {
                     @RenderSection("Navigation");
@@ -48,10 +48,10 @@
                 { 
                      <div class="nav-collapse">
                                     <ul class="nav">
-                                        <li class="active"><a href="#">Home</a></li>
-                                        <li><a href="#about">Sponsored Swim</a></li>
-                                        <li><a href="#contact">Donate</a></li>
-                                        <li><a href="#contact">Blog</a></li>
+                                        <li class="active"><a href="/">Home</a></li>
+                                        <li><a href="/Fundraising/Swim">Sponsored Swim</a></li>
+                                        <li><a href="/Donations">Donate</a></li>
+                                        <li><a href="http://www.supportsasha.com">Blog</a></li>
                                     </ul>
                                 </div>   
                 }

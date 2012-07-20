@@ -20,6 +20,7 @@ namespace SupportSasha.Donations.Controllers
             model.TargetsTotal = targetsSum;
             model.Targets = targets;
             model.Donations = donations;
+            model.DonationsTotal = donations.Sum(x => x.Amount);
             decimal donationsSum = donations.Sum(x => x.Amount);
             model.ProgressPercentage = (double)Math.Round(donationsSum / targetsSum * 100, 2);
             return View(model);

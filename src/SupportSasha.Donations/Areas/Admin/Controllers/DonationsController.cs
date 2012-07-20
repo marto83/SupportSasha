@@ -24,11 +24,31 @@ namespace SupportSasha.Donations.Areas.Admin.Controllers
         {
             if(ModelState.IsValid)
             {
-                var donation = new Donation() { Name = model.Name, Amount = model.Amount, Message = model.Message, Email = model.Email };
+                var donation = new Donation() { Name = model.Name, 
+                                                  Amount = model.Amount, 
+                                                  Message = model.Message, 
+                                                  Email = model.Email,
+                                                    DontShowName = model.DontShowName};
                 Session.Store(donation);
                 return RedirectToAction("Index");
             }
             return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Confirm(string id)
+        {
+            var donation = Session.Load<Donation>(id);
+            if (donation != null)
+            {
+                donation.Confirmed = true;
+                Session.SaveChanges();
+                SetMessage("Donation confirmed successfully");
+                return RedirectToAction("Index");
+            }
+            SetError("Donation {0} not found", id);
+            return RedirectToAction("Index");
+            
         }
     }
 }

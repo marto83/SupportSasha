@@ -1,0 +1,30 @@
+﻿@model Donation
+
+<li class="@GetDonationClass(Model)">
+<img src="@Html.GetUserImageByEmail(@Model.Email)" />
+<p class="donationMessage">
+<strong class=" sashasFont">@Model.Name (@Model.Email)</strong>
+<span class="donationDate">@Html.HumanDate(Model.Date)</span>
+@Model.Message
+</p>
+<p class="donationMessage">
+Campaign: @Model.CampaignName
+@if (Model.Confirmed == false)
+{
+    using (var form = Html.BeginForm("Confirm", "Donations", FormMethod.Post, new { @class = "form-inline" }))
+    {
+        <input type="hidden" name="id" value="@Model.Id" />
+    
+        <button class="btn btn-success">Confirm</button>
+    }
+}
+
+</p>
+<span class="donationAmount sashasFont">£ @Model.Amount</span>
+</li>
+
+@functions {
+    string GetDonationClass(Donation donation) {
+        return donation.Confirmed ? "confirmedDonation" : "";
+    }
+}

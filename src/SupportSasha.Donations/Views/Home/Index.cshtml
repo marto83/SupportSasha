@@ -17,7 +17,7 @@
 </div>
 <section id="donationTarget">
 <div class="progressWrapper">
-    <h2>Fundraising target: &pound;@Model.TargetsTotal</h2>
+    <h2>Fundraising: &pound;@Model.DonationsTotal / &pound;@Model.TargetsTotal</h2>
     <div class="progress progress-striped">
   <div class="bar"
        style="width:  @Model.ProgressPercentage%;"></div>
@@ -32,26 +32,6 @@
     <h3>
         Donations</h3>
     <ul class="donationList">
-        @foreach (var donation in Model.Donations)
-        {
-            <li>
-                @GetDonationImage(@donation.Image)
-                <div class="donationMessage">
-                    @Html.WrapWith(donation.Message, "p")
-                    <span class="small">Donated by <strong>@donation.Name</strong> on @Html.FormatDate(donation.Date)</span>
-                </div>
-                <div class="donationAmount">
-                    <span class="large">&pound;@donation.Amount</span></div>
-            </li>
-        }
+        @Html.DisplayFor(x => x.Donations)
     </ul>
 </div>
-@functions {
-    dynamic GetDonationImage(string image)
-    {
-        string src = image;
-        if (string.IsNullOrWhiteSpace(image))
-            src = "/Content/images/happy-face.png";
-        return new MvcHtmlString(String.Format("<img src=\"{0}\" class=\"donationImage\" />", src));
-    }
-}

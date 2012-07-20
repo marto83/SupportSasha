@@ -35,9 +35,14 @@ namespace SupportSasha.Donations.Controllers
             }
         }
 
-        protected void SetMessage(string message)
+        protected void SetMessage(string message, params object[] args)
         {
-            ViewBag.Message = message;
+            TempData["message"] = String.Format(message, args);
+        }
+
+        protected void SetError(string error, params object[] args)
+        {
+            TempData["error"] = String.Format(error, args);
         }
 
         protected override void OnActionExecuting(ActionExecutingContext filterContext)

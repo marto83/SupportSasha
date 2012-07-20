@@ -1,5 +1,11 @@
-﻿@model SupportSasha.Donations.Models.Donation
-
+﻿@model Donation
+           
 <li>
-@Model.Name
+    <img src="@Html.GetUserImageByEmail(Model.Email)" />
+    <div class="donationMessage">
+        <p>@Model.Message</p>
+        <span class="small">Donated by <strong class="sashasFont">@Model.GetPublicName()</strong> @Html.HumanDate(Model.Date)</span>
+    </div>
+    <div class="donationAmount sashasFont">
+        <span class="large">&pound;@Model.Amount</span></div>
 </li>

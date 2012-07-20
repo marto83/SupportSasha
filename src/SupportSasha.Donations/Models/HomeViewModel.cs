@@ -7,6 +7,7 @@ namespace SupportSasha.Donations.Models
 {
     public class HomeViewModel
     {
+        public decimal DonationsTotal { get; set; }
         public IEnumerable<Target> Targets { get; set; }
         public IEnumerable<Donation> Donations { get; set; }
         public decimal TargetsTotal { get; set; }

@@ -15,6 +15,10 @@
     
     @Html.LabelFor(x => x.Message)
     @Html.TextAreaFor(x => x.Message)
+
+    <label class="checkbox">
+        @Html.CheckBoxFor(x => x.DontShowName) Show anonymous instead of real name on homepage    
+    </label>
     
    <button type="submit" class="btn">Submit</button>
 }
