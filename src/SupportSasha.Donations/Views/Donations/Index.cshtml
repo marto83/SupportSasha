@@ -3,36 +3,42 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>
-    Donate</h2>
-<div class="donationOption">
-    @using (var form = Html.BeginForm())
-    {
-        <div class="field">@Html.LabelFor(x => x.Name)
-            @Html.TextBoxFor(x => x.Name, new { @class = "input" })
-        </div>
-        <div class="field">
-            @Html.LabelFor(x => x.Email)
-            @Html.TextBoxFor(x => x.Email, new { @class = "input" })
-        </div>
-        <div class="field">
-            @Html.LabelFor(x => x.Amount)
-            @Html.RadioButtonFor(x => x.Amount, "20") <span class="radioText">£20</span>
-            @Html.RadioButtonFor(x => x.Amount, "10") <span class="radioText">£10</span>
-            @Html.RadioButtonFor(x => x.Amount, "5") <span class="radioText">£5</span>
-            <br />
-        </div>
-        <div class="field">
-            <label>
-                Other amount</label>
-            @Html.TextBoxFor(x => x.Amount, new { @class = "input" })</div>
-        <div class="field">
-            @Html.LabelFor(x => x.Message)
-            @Html.TextAreaFor(x => x.Message, new { @class = "input" })
-        </div>
-        @Html.HiddenFor(x => x.Campaign, new { value = ViewBag.Campaign })
+<h1>
+    Donate</h1>
+<div class="span6" style="margin-left: 0">
+    <form method="post">
+    <label for="Name"><strong>Name</strong></label>
+    @Html.TextBoxFor(x => x.Name, new { @class = "input-xlarge" })
+    <label for="Email"><strong>Email</strong></label>
 
-        <button class="donate">
-            Donate by Paypal</button>
-    }
+    @Html.TextBoxFor(x => x.Email, new { @class = "input-xlarge" })
+    <span class="help-block">I promise not to share you email with anybody!</span>
+
+    <label><strong>Amount</strong></label>
+    <label class="radio">@Html.RadioButtonFor(x => x.Amount, "20") £20</label>
+     <label class="radio">@Html.RadioButtonFor(x => x.Amount, "10") £10</label>
+     <label class="radio">@Html.RadioButtonFor(x => x.Amount, "5") £5</label>
+     <label class="radio">@Html.RadioButtonFor(x => x.Amount, "Other") @Html.TextBoxFor(x => x.Amount, new { @class = "input" })</label>
+        
+    <label for="Message"><strong>Message</strong></label>
+    @Html.TextAreaFor(x => x.Message, new { @class = "input-xlarge" })
+    @Html.HiddenFor(x => x.Campaign, new { value = ViewBag.Campaign })
+    <label class="checkbox">
+        @Html.CheckBoxFor(x => x.DontShowName)
+        Show Anonymous instead of my name on the donations list
+    </label>
+    <div class="form-actions">
+    <button class="btn-large btn btn-primary">
+        Donate by Paypal</button>
+        </div>
+        </form>
 </div>
+<div class="span4">
+    <h3>
+        Thank you in advance</h3>
+    <img src='@Url.Image("DonationsSasha.jpg")' alt="Thank you from Sasha" title="Sasha">
+    <p>
+        All the money (except some processing fees) will go to fund therapies to help me
+        get better.</p>
+</div>
+ 

@@ -1,6 +1,7 @@
 ﻿h1, h2, h3, h4 
 {
     font-family: Sasha, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-bottom: 15px;
 }
 
 .sashasFont
@@ -127,3 +128,4 @@
         top: 30px;
         font-size: 250%;
     }
+
