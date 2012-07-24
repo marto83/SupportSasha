@@ -27,11 +27,11 @@ namespace SupportSasha.Donations.Controllers
         {
                //create admin role
                 //_Roles.CreateRole(MvcApplication.ApplicationName, "Admin");
-            var user =Session.Query<User>().FirstOrDefault(x => x.Name == "admin");
+            var user =RavenSession.Query<User>().FirstOrDefault(x => x.Name == "admin");
             if (user == null)
             {
                 User admin = new User { Name = "admin", Email = "marto83@gmail.com", Password = "password" };
-                Session.Store(admin);
+                RavenSession.Store(admin);
                 TempData["message"] = "Admin user setup";
             }
                 

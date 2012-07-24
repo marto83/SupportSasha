@@ -9,7 +9,7 @@ namespace SupportSasha.Donations.Controllers
 {
     public class BaseController : Controller
     {
-        public new IDocumentSession Session { get; set; }
+        public new IDocumentSession RavenSession { get; set; }
 
         private static IDocumentStore _documentStore;
         public static IDocumentStore DocumentStore
@@ -47,15 +47,15 @@ namespace SupportSasha.Donations.Controllers
 
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            Session = DocumentStore.OpenSession();
+            RavenSession = DocumentStore.OpenSession();
         }
 
         protected override void OnActionExecuted(ActionExecutedContext filterContext)
         {
-            using (Session)
+            using (RavenSession)
             {
-                if (Session != null && filterContext.Exception == null)
-                    Session.SaveChanges();
+                if (RavenSession != null && filterContext.Exception == null)
+                    RavenSession.SaveChanges();
             }
         }
     }

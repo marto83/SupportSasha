@@ -10,7 +10,7 @@ namespace SupportSasha.Donations.Areas.Admin.Controllers
     {
         public ActionResult Index()
         {
-            var donations = Session.Query<Donation>().ToList();
+            var donations = RavenSession.Query<Donation>().ToList();
             return View(donations);
         }
 
@@ -24,12 +24,8 @@ namespace SupportSasha.Donations.Areas.Admin.Controllers
         {
             if(ModelState.IsValid)
             {
-                var donation = new Donation() { Name = model.Name, 
-                                                  Amount = model.Amount, 
-                                                  Message = model.Message, 
-                                                  Email = model.Email,
-                                                    DontShowName = model.DontShowName};
-                Session.Store(donation);
+                var donation = Donation.CreatFromInput(model);
+                RavenSession.Store(donation);
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -38,11 +34,11 @@ namespace SupportSasha.Donations.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Confirm(string id)
         {
-            var donation = Session.Load<Donation>(id);
+            var donation = RavenSession.Load<Donation>(id);
             if (donation != null)
             {
                 donation.Confirmed = true;
-                Session.SaveChanges();
+                RavenSession.SaveChanges();
                 SetMessage("Donation confirmed successfully");
                 return RedirectToAction("Index");
             }

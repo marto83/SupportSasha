@@ -16,25 +16,37 @@ namespace SupportSasha.Donations.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(Donation attempt)
+        public ActionResult Index(DonationInput attempt)
         {
-            attempt.Date = DateTimeOffset.Now.DateTime;
-            Session.Store(attempt);
-            var campaign = attempt.CampaignName ?? "Donation";
+            if (ModelState.IsValid)
+            {
+                Donation donation = Donation.CreatFromInput(attempt);
+                RavenSession.Store(donation);
+                RavenSession.SaveChanges();
+                Session["DonationId"] = donation.Id;
 
+                string paypalUrl = GetPaypalUrl(attempt);
+                return Redirect(paypalUrl);
+            }
+
+            return View(attempt);
+        }
+
+        private string GetPaypalUrl(DonationInput attempt)
+        {
             UriBuilder builder = new UriBuilder("https://www.paypal.com/cgi-bin/webscr");
             NameValueCollection query = new NameValueCollection();
             query["cmd"] = "_donations";
             query["business"] = "kategeorgiev@yahoo.co.uk";
             query["lc"] = "GB";
             query["item_name"] = "Support Sasha";
-            query["item_number"] = campaign;
+            query["item_number"] = attempt.Campaign;
             query["currency_code"] = "GBP";
             query["bn"] = "PP-DonationsBF:btn_donateCC_LG.gif:NonHosted";
             query["amount"] = attempt.Amount.ToString();
             query["return"] = "http://supportsasha.apphb.com/donations/thankyou";
             builder.Query = ToQueryString(query);
-            return Redirect(builder.Uri.ToString());
+            return builder.Uri.ToString();
         }
 
         public ActionResult ThankYou()

@@ -15,7 +15,7 @@ namespace SupportSasha.Donations.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
-            var targets = Session.Query<Target>().ToList();
+            var targets = RavenSession.Query<Target>().ToList();
             return View(targets);
         }
 
@@ -43,8 +43,8 @@ namespace SupportSasha.Donations.Areas.Admin.Controllers
         {
             try
             {
-               Session.Store(target);
-               Session.SaveChanges();
+               RavenSession.Store(target);
+               RavenSession.SaveChanges();
                SetMessage("Target saved");
 
                return RedirectToAction("Index");
@@ -86,8 +86,8 @@ namespace SupportSasha.Donations.Areas.Admin.Controllers
         {
             try
             {
-                var target = Session.Load<Target>(id);
-                Session.Delete(target);
+                var target = RavenSession.Load<Target>(id);
+                RavenSession.Delete(target);
 
                 return RedirectToAction("Index");
             }

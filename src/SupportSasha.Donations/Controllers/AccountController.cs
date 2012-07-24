@@ -43,7 +43,7 @@ namespace SupportSasha.Donations.Controllers
 
         private bool SignInUser(SignInModel model, out User user)
         {
-            user = Session.Query<User>().FirstOrDefault(x => x.Name == model.Username);
+            user = RavenSession.Query<User>().FirstOrDefault(x => x.Name == model.Username);
             return user != null && user.Password == model.Password;
         }
 

@@ -7,6 +7,8 @@
     Donate</h1>
 <div class="span6" style="margin-left: 0">
     <form method="post">
+    @Html.ValidationSummary("Oh snap! Change a few things and try again.", new { @class = "alert alert-error" })
+
     <label for="Name"><strong>Name</strong></label>
     @Html.TextBoxFor(x => x.Name, new { @class = "input-xlarge" })
     <label for="Email"><strong>Email</strong></label>
@@ -18,7 +20,7 @@
     <label class="radio">@Html.RadioButtonFor(x => x.Amount, "20") £20</label>
      <label class="radio">@Html.RadioButtonFor(x => x.Amount, "10") £10</label>
      <label class="radio">@Html.RadioButtonFor(x => x.Amount, "5") £5</label>
-     <label class="radio">@Html.RadioButtonFor(x => x.Amount, "Other") @Html.TextBoxFor(x => x.Amount, new { @class = "input" })</label>
+     <label class="radio">@Html.RadioButtonFor(x => x.Amount, "Other") @Html.TextBoxFor(x => x.OtherAmount, new { @class = "input" })</label>
         
     <label for="Message"><strong>Message</strong></label>
     @Html.TextAreaFor(x => x.Message, new { @class = "input-xlarge" })

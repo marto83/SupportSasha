@@ -129,3 +129,10 @@
         font-size: 250%;
     }
 
+.validation-summary-errors span 
+{
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 110%;
+}

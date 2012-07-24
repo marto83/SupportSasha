@@ -38,5 +38,19 @@ namespace SupportSasha.Donations.Models
         {
             Date = DateTimeOffset.Now;
         }
+
+        public static Donation CreatFromInput(DonationInput attempt)
+        {
+            return new Donation
+            {
+                Name = attempt.Name,
+                Amount = attempt.Amount,
+                Message = attempt.Message,
+                Email = attempt.Email,
+                DontShowName = attempt.DontShowName,
+                Date = DateTimeOffset.Now,
+                CampaignName = attempt.Campaign ?? "General"
+            };
+        }
     }
 }
