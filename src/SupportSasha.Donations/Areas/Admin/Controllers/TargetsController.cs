@@ -60,19 +60,28 @@ namespace SupportSasha.Donations.Areas.Admin.Controllers
  
         public ActionResult Edit(string id)
         {
-            return View();
+            var fullId = "targets/" + id;
+            var target = RavenSession.Load<Target>(fullId);
+            return View(target);
         }
 
         //
         // POST: /Admin/Targets/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(string id, Target target)
         {
             try
             {
-                // TODO: Add update logic here
- 
+                string fullId = "targets/" + id;
+                var dbTarget = RavenSession.Load<Target>(fullId);
+                dbTarget.Name = target.Name;
+                dbTarget.Amount = target.Amount;
+                dbTarget.MoreInfoLink = target.MoreInfoLink;
+                dbTarget.Description = target.Description;
+                RavenSession.SaveChanges();
+
+                SetMessage("Target updated successfully");
                 return RedirectToAction("Index");
             }
             catch

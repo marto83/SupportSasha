@@ -13,7 +13,7 @@
         where you can find out more about me as well as helpful resouces</p>
     <p>
     @Html.ActionLink("Donate", "Index", "Donations", null, new { @class = "btn btn-primary btn-large" }) 
-        &nbsp;&nbsp; or&nbsp;&nbsp; @Html.ActionLink("Learn more", "Index", "Targets", null, new { @class = "btn" })</p>
+        &nbsp;&nbsp; or&nbsp;&nbsp; @Html.ActionLink("Learn more", "Targets", "Donations", null, new { @class = "btn" })</p>
 </div>
 <section id="donationTarget">
 <div class="progressWrapper">
@@ -22,7 +22,7 @@
   <div class="bar"
        style="width:  @Model.ProgressPercentage%;"></div>
 </div>
-    @Html.ActionLink("more information", "Targets", null, new { @class = "targetBreakdown" })
+    @Html.ActionLink("more information", "Targets", "Donations", null, new { @class = "targetBreakdown" })
     
 </div>
 

@@ -13,10 +13,9 @@
     </div>
 }
 <h2>
-    Create</h2>
+    Edit</h2>
 @using (var form = Html.BeginForm())
 {
-    
     @Html.LabelFor(x => x.Name)
     @Html.TextBoxFor(x => x.Name)
     
@@ -30,6 +29,7 @@
     @Html.TextBoxFor(x => x.MoreInfoLink)
     <div class="form-actions">
         <button class="btn btn-primary">
-            Create</button>
+            Save</button> or 
+            @Html.ActionLink("cancel", "Index", null, new { @class = "btn btn-mini" })
     </div>
 }

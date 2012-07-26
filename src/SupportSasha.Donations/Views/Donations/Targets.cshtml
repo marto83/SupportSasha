@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Target>
+@{
+    ViewBag.Title = "Targets";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>
+    Therapies mummy and daddy are fundraising for:</h2>
+@foreach (var target in Model)
+{
+    <div class="well cc">
+        <h3>@target.Name</h3>
+        <p>@Html.FormatDescription(target.Description)</p>
+        <p>@Html.ActionLink("Donate", "Index", null, new { @class = "btn btn-primary" }) or <a href="@target.MoreInfoLink" target="_blank">
+            find out more</a></p>
+    </div>
+}

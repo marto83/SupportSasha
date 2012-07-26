@@ -71,7 +71,7 @@ namespace SupportSasha.Donations.Helpers
 
         public static dynamic WrapWith(this HtmlHelper helper, string text, string tagName)
         {
-            if(string.IsNullOrWhiteSpace(text))
+            if (string.IsNullOrWhiteSpace(text))
                 return string.Empty;
 
             var builder = new TagBuilder(tagName);
@@ -86,11 +86,17 @@ namespace SupportSasha.Donations.Helpers
 
         private static string GetGravatarUrl(string email)
         {
-            string baseUrl = "http://www.gravatar.com/avatar/{0}?s=48&r=pg&d={1}";
+            const string defaultImage = "/Content/Images/happy-face.png";
+
+            if (string.IsNullOrWhiteSpace(email))
+                return defaultImage;
+                
             string processedEmail = email.Trim().ToLower();
             using (MD5 md5Hash = MD5.Create())
             {
-                return String.Format(baseUrl, GetMd5Hash(md5Hash, processedEmail), WebHelpers.ResolveServerUrl("/Content/Images/happy-face.png"));
+                return String.Format("http://www.gravatar.com/avatar/{0}?s=48&r=pg&d={1}", 
+                                     GetMd5Hash(md5Hash, processedEmail), 
+                                     WebHelpers.ResolveServerUrl(defaultImage));
             }
         }
 
@@ -113,6 +119,13 @@ namespace SupportSasha.Donations.Helpers
 
             // Return the hexadecimal string.
             return sBuilder.ToString();
+        }
+
+        public static dynamic FormatDescription(this HtmlHelper helper, string text)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+                return text;
+            return new MvcHtmlString(text.Replace(Environment.NewLine, "<br/>"));
         }
     }
 }

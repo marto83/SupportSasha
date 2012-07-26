@@ -38,9 +38,11 @@ namespace SupportSasha.Donations.Controllers
             return Redirect("/");
         }
 
-        public string Test ()
+        public string TestEmail ()
         {
-            return "testing";
+            System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient();
+            client.Send(new System.Net.Mail.MailMessage("test@test.com", "marto83@gmail.com", "Test", "Testing"));
+            return "testing email";
         }
 
     }

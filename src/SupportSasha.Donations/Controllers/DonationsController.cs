@@ -5,11 +5,20 @@ using System.Web;
 using System.Web.Mvc;
 using SupportSasha.Donations.Models;
 using System.Collections.Specialized;
+using System.Collections;
 
 namespace SupportSasha.Donations.Controllers
 {
     public class DonationsController : BaseController
     {
+        private const string DonationIDKey = "DonationId";
+
+        public string DonationId
+        {
+            get { return (string)Session[DonationIDKey]; }
+            set { Session[DonationIDKey] = value; }
+        }
+
         public ActionResult Index(string campaign = "")
         {
             return View();
@@ -23,7 +32,7 @@ namespace SupportSasha.Donations.Controllers
                 Donation donation = Donation.CreatFromInput(attempt);
                 RavenSession.Store(donation);
                 RavenSession.SaveChanges();
-                Session["DonationId"] = donation.Id;
+                Session[DonationIDKey] = donation.Id;
 
                 string paypalUrl = GetPaypalUrl(attempt);
                 return Redirect(paypalUrl);
@@ -51,7 +60,27 @@ namespace SupportSasha.Donations.Controllers
 
         public ActionResult ThankYou()
         {
-            return View();
+            string donationId = DonationId;
+            if (string.IsNullOrEmpty(donationId))
+            {
+               return Redirect("/");
+            }
+
+            var donation = RavenSession.Load<Donation>(donationId);
+
+            donation.Confirmed = true;
+            //send thank you email
+            //clear donation Id
+            DonationId = null;
+
+           return View(new { Name = donation.Name });
+        }
+
+
+        public ActionResult Targets()
+        {
+            var targets = RavenSession.Query<Target>().ToList();
+            return View(targets);
         }
 
         private string ToQueryString(NameValueCollection nvc)

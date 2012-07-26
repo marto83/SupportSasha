@@ -272,6 +272,7 @@
     <Content Include="Areas\Admin\Views\Donations\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Donations\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\DisplayTemplates\Donation.cshtml" />
+    <Content Include="Areas\Admin\Views\Targets\Edit.cshtml" />
     <None Include="Content\fonts\TEMPSITC.eot" />
     <None Include="Content\fonts\TEMPSITC.otf" />
     <None Include="Content\fonts\TEMPSITC.ttf" />
@@ -282,6 +283,7 @@
     <Content Include="Views\Account\Sign-In.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Donation.cshtml" />
     <Content Include="Views\Shared\Message.cshtml" />
+    <Content Include="Views\Donations\Targets.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

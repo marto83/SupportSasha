@@ -25,7 +25,7 @@ namespace SupportSasha.Donations.Areas.Admin.Controllers
             if(ModelState.IsValid)
             {
                 var donation = Donation.CreatFromInput(model);
-                RavenSession.Store(donation);
+                  RavenSession.Store(donation);
                 return RedirectToAction("Index");
             }
             return View(model);

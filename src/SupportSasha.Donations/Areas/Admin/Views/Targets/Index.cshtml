@@ -20,16 +20,21 @@
 
 @foreach (var target in Model)
 {
-    <div class="target">
+    <div class="well">
+    <h2>@Html.ActionLink(target.Name, "Edit", new { Id = target.ShortId })</h2>
     <span>@target.Amount</span>
-    @target.Description
-    </div>
-    
-    using (Html.BeginForm("Delete", "Targets"))
+   <p>@Html.FormatDescription(target.Description)</p>
+            <br />
+        <br />
+    @using (Html.BeginForm("Delete", "Targets"))
     {
          @Html.Hidden("Id", target.Id);
-         <button onclick="return confirm('Are you sure');">Delete</button>                                      
+         <button onclick="return confirm('Are you sure');" class="btn btn-danger">Delete</button>                                      
     }
+    </div>
+    
+   
 }
 
 @Html.ActionLink("Add target", "Create")
+
