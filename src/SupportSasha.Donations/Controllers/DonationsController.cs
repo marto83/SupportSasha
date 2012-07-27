@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using SupportSasha.Donations.Models;
 using System.Collections.Specialized;
 using System.Collections;
+using SupportSasha.Donations.Helpers;
 
 namespace SupportSasha.Donations.Controllers
 {
@@ -53,7 +54,7 @@ namespace SupportSasha.Donations.Controllers
             query["currency_code"] = "GBP";
             query["bn"] = "PP-DonationsBF:btn_donateCC_LG.gif:NonHosted";
             query["amount"] = attempt.Amount.ToString();
-            query["return"] = "http://supportsasha.apphb.com/donations/thankyou";
+            query["return"] = WebHelpers.ResolveServerUrl("/donations/thankyou");
             builder.Query = ToQueryString(query);
             return builder.Uri.ToString();
         }
