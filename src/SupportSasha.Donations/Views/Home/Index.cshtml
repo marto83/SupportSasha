@@ -3,7 +3,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="hero-unit">
+<div class="hero-unit home-hero">
     <h1>
         Welcome</h1>
     <img src="@Url.Image("SashaOnSwing.jpg")" />
@@ -12,7 +12,7 @@
         Currently I am fundraising for Dolphin and Stem cell therapy. I also have a blog
         where you can find out more about me as well as helpful resouces</p>
     <p>
-    @Html.ActionLink("Donate", "Index", "Donations", null, new { @class = "btn btn-primary btn-large" }) 
+        @Html.ActionLink("Donate", "Index", "Donations", null, new { @class = "btn btn-primary btn-large" })
         &nbsp;&nbsp; or&nbsp;&nbsp; @Html.ActionLink("Learn more", "Targets", "Donations", null, new { @class = "btn" })</p>
 </div>
 <section id="donationTarget">
@@ -23,7 +23,6 @@
        style="width:  @Model.ProgressPercentage%;"></div>
 </div>
     @Html.ActionLink("more information", "Targets", "Donations", null, new { @class = "targetBreakdown" })
-    
 </div>
 
 </section>

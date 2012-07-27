@@ -44,7 +44,7 @@ namespace SupportSasha.Donations.Models
             return new Donation
             {
                 Name = attempt.Name,
-                Amount = attempt.Amount,
+                Amount = attempt.Amount == null ? attempt.OtherAmount.Value : attempt.Amount.Value,
                 Message = attempt.Message,
                 Email = attempt.Email,
                 DontShowName = attempt.DontShowName,
@@ -53,4 +53,6 @@ namespace SupportSasha.Donations.Models
             };
         }
     }
+
+    
 }

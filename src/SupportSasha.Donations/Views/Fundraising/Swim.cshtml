@@ -1,0 +1,48 @@
+﻿@model SwimProgressModel
+@{
+    ViewBag.Title = "Swim";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>
+    Sponsored swim</h1>
+<div class="row-fluid">
+    <div class="span2 swimmer">
+        <h2>
+            Luke Sampson</h2>
+        <img src='@Url.Image("swimming-pig.jpg")' alt="Luke" />
+        <div class="swimmer-buttons">
+            @Html.ActionLink("Sponsor me", "Index", "Donations", new { campaign = "Swim" }, new { @class = "btn btn-primary btn-large" })
+        </div>
+    </div>
+    <div class="span8">
+        <p class="swim-description">
+            In October of this year, Sasha's uncle Luke (aka 'The pig') and his friend Ruth will be swimming
+            1000 lengths for Support Sasha; that's a distance of 25 km, more than twice the
+            length of... Lengths are priced at £1 each and they will only be swimming the lengths
+            they sell, so please give generously!</p>
+    </div>
+    <div class="span2 swimmer">
+        <h2>
+            Ruth Scanlan</h2>
+        <img src='@Url.Image("Ruth.jpg")' alt="Ruth Scanlan" />
+        <div class="swimmer-buttons">
+            @Html.ActionLink("Sponsor me", "Index", "Donations", new { campaign = "Swim" }, new { @class = "btn btn-primary btn-large" })
+        </div>
+    </div>
+</div>
+<div class="progressWrapper">
+    <h2>
+        Progress: @Model.PurchasedSwimLanes / @Model.TotalSwimLanes lengths</h2>
+    <div class="progress progress-striped">
+        <div class="bar"
+       style="width:  @Model.ProgressPercentage%;">
+        </div>
+    </div>
+</div>
+<div class="donationsWrapper">
+    <h3>
+        Donations</h3>
+    <ul class="donationList">
+        @Html.DisplayFor(x => x.Donations)
+    </ul>
+</div>

@@ -25,6 +25,9 @@
     @Html.LabelFor(x => x.Message)
     @Html.TextAreaFor(x => x.Message)
 
+    @Html.LabelFor(x => x.Campaign)
+    @Html.TextBoxFor(x => x.Campaign)
+
     <label class="checkbox">
         @Html.CheckBoxFor(x => x.DontShowName) Show anonymous instead of real name on homepage    
     </label>

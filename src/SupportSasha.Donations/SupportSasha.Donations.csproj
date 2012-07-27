@@ -156,7 +156,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DonationsController.cs" />
-    <Compile Include="Controllers\FundrasingController.cs" />
+    <Compile Include="Controllers\FundraisingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InstallController.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
@@ -167,6 +167,7 @@
     <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="Helpers\UrlHelpers.cs" />
     <Compile Include="Helpers\WebHelpers.cs" />
+    <Compile Include="Models\SwimProgressModel.cs" />
     <Compile Include="Models\Donation.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -202,6 +203,7 @@
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Images\SashaOnSwing.jpg" />
     <Content Include="Content\Images\swim-background.png" />
+    <Content Include="Content\Images\swimming-pig.jpg" />
     <Content Include="Content\Scripts\bootstrap-alert.js" />
     <Content Include="Content\Scripts\bootstrap-button.js" />
     <Content Include="Content\Scripts\bootstrap-carousel.js" />
@@ -281,7 +283,7 @@
     <Content Include="Content\fonts\TEMPSITC.otf" />
     <Content Include="Content\fonts\TEMPSITC.ttf" />
     <Content Include="Content\fonts\TEMPSITC.woff" />
-    <Content Include="Views\Fundrasing\Swim.cshtml" />
+    <Content Include="Views\Fundraising\Swim.cshtml" />
     <Content Include="Views\Donations\Index.cshtml" />
     <Content Include="Views\Donations\ThankYou.cshtml" />
     <Content Include="Views\Account\Sign-In.cshtml" />

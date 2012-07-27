@@ -17,10 +17,10 @@
     <span class="help-block">I promise not to share you email with anybody!</span>
 
     <label><strong>Amount</strong></label>
-    <label class="radio">@Html.RadioButtonFor(x => x.Amount, "20") £20</label>
+    <label class="radio">@Html.RadioButtonFor(x => x.Amount, "20", new { @checked = "checked" }) £20</label>
      <label class="radio">@Html.RadioButtonFor(x => x.Amount, "10") £10</label>
      <label class="radio">@Html.RadioButtonFor(x => x.Amount, "5") £5</label>
-     <label class="radio">@Html.RadioButtonFor(x => x.Amount, "Other") @Html.TextBoxFor(x => x.OtherAmount, new { @class = "input" })</label>
+     <label class="radio">@Html.RadioButtonFor(x => x.Amount, "") @Html.TextBoxFor(x => x.OtherAmount, new { @class = "input" })</label>
         
     <label for="Message"><strong>Message</strong></label>
     @Html.TextAreaFor(x => x.Message, new { @class = "input-xlarge" })
