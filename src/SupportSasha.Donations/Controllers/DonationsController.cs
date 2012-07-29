@@ -9,9 +9,17 @@ using System.Collections;
 using SupportSasha.Donations.Helpers;
 using System.Net;
 using System.IO;
+using SupportSasha.Donations.Code;
 
 namespace SupportSasha.Donations.Controllers
 {
+    public class PaypalDataResult
+    {
+        public bool Success { get; set; }
+        public string Name { get; set; }
+        public decimal Amount { get; set; }
+    }
+
     public class DonationsController : BaseController
     {
         private const string DonationIDKey = "DonationId";
@@ -46,10 +54,10 @@ namespace SupportSasha.Donations.Controllers
 
         private string GetPaypalUrl(DonationInput attempt)
         {
-            UriBuilder builder = new UriBuilder("https://www.paypal.com/cgi-bin/webscr");
+            UriBuilder builder = new UriBuilder(String.Format("{0}/cgi-bin/webscr", PaypalSettings.PaypalUrl));
             NameValueCollection query = new NameValueCollection();
             query["cmd"] = "_donations";
-            query["business"] = "kategeorgiev@yahoo.co.uk";
+            query["business"] = PaypalSettings.BusinessEmail;
             query["lc"] = "GB";
             query["item_name"] = "Support Sasha";
             query["item_number"] = attempt.Campaign;
@@ -61,18 +69,16 @@ namespace SupportSasha.Donations.Controllers
             return builder.Uri.ToString();
         }
 
-        public void ValidateDataTransfer()
+        public PaypalDataResult ValidateDataTransfer()
         {
             // CUSTOMIZE THIS: This is the seller's Payment Data Transfer authorization token.
             // Replace this with the PDT token in "Website Payment Preferences" under your account.
-            string authToken = "VLffXfMn3q62BhuZuKob-f87J1-FQBUtR97kuj9kMSwfI_zR4v4lRYFciDq";
             string txToken = Request.QueryString["tx"];
-            string query = "cmd=_notify-synch&tx=" + txToken + "&at=" + authToken;
+            string query = "cmd=_notify-synch&tx=" + txToken + "&at=" + PaypalSettings.AuthToken;
 
             //Post back to either sandbox or live
-            string strSandbox = "https://www.sandbox.paypal.com/cgi-bin/webscr";
-            string strLive = "https://www.paypal.com/cgi-bin/webscr";
-            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(strLive);
+            string url = String.Format("{0}/cgi-bin/webscr", PaypalSettings.PaypalUrl);
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
 
             //Set values for the request back
             req.Method = "POST";
@@ -101,26 +107,18 @@ namespace SupportSasha.Donations.Controllers
                     while ((line = reader.ReadLine()) != null)
                     {
                         results.Add(line.Split('=')[0], line.Split('=')[1]);
-
                     }
-                    Response.Write("<p><h3>Your order has been received.</h3></p>");
-                    Response.Write("<b>Details</b><br>");
-                    Response.Write("<li>Name: " + results["first_name"] + " " + results["last_name"] + "</li>");
-                    Response.Write("<li>Item: " + results["item_name"] + "</li>");
-                    Response.Write("<li>Amount: " + results["payment_gross"] + "</li>");
-                    Response.Write("<hr>");
+
+                    return new PaypalDataResult { Success = true, Name = results["first_name"] + " " + results["last_name"], Amount = Convert.ToDecimal(results["payment_gross"])};
                 }
                 else if (line == "FAIL")
                 {
-                    // Log for manual investigation
-                    Response.Write("Unable to retrive transaction detail");
+                    return new PaypalDataResult { Success = false };
                 }
             }
-            else
-            {
-                //unknown error
-                Response.Write("ERROR");
-            }            
+           
+
+            return new PaypalDataResult { Success = false };
         }
 
         public ActionResult ThankYou()
@@ -131,9 +129,13 @@ namespace SupportSasha.Donations.Controllers
                return Redirect("/");
             }
 
+            var result = ValidateDataTransfer();
             var donation = RavenSession.Load<Donation>(donationId);
 
-            donation.Confirmed = true;
+            if (result.Success)
+            {
+                donation.Confirmed = true;
+            }
             //send thank you email
             //clear donation Id
             DonationId = null;

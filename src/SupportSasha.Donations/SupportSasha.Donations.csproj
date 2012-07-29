@@ -37,9 +37,6 @@
     <Reference Include="BouncyCastle.Crypto">
       <HintPath>..\packages\RavenDB.Database.1.0.960\lib\net40\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="Esent.Interop">
       <HintPath>..\packages\RavenDB.Database.1.0.960\lib\net40\Esent.Interop.dll</HintPath>
     </Reference>
@@ -48,12 +45,6 @@
     </Reference>
     <Reference Include="FluentValidation.Mvc">
       <HintPath>..\packages\FluentValidation.MVC3.3.3.1.0\lib\Net40\FluentValidation.Mvc.dll</HintPath>
-    </Reference>
-    <Reference Include="Griffin.MvcContrib">
-      <HintPath>..\packages\griffin.mvccontrib.0.0.9\lib\net40\Griffin.MvcContrib.dll</HintPath>
-    </Reference>
-    <Reference Include="Griffin.MvcContrib.RavenDb">
-      <HintPath>..\packages\Griffin.MvcContrib.RavenDb.1.0.4\lib\net40\Griffin.MvcContrib.RavenDb.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.NRefactory">
       <HintPath>..\packages\RavenDB.Database.1.0.960\lib\net40\ICSharpCode.NRefactory.dll</HintPath>
@@ -152,6 +143,7 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\TargetsController.cs" />
     <Compile Include="Code\ISignInService.cs" />
+    <Compile Include="Code\PaypalSettings.cs" />
     <Compile Include="Code\SignInService.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -190,8 +182,6 @@
     <Compile Include="StructureMapControllerFactory.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_ReadMe\Griffin.MvcContrib.RavenDb.txt" />
-    <Content Include="App_ReadMe\Griffin.MvcContrib.txt" />
     <Content Include="Content\fonts\TEMPSITC.svg" />
     <Content Include="Content\Images\150x150.gif" />
     <Content Include="Content\Images\200x200.gif" />
