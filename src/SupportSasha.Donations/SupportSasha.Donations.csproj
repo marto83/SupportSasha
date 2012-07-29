@@ -37,6 +37,9 @@
     <Reference Include="BouncyCastle.Crypto">
       <HintPath>..\packages\RavenDB.Database.1.0.960\lib\net40\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
+    <Reference Include="Elmah">
+      <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+    </Reference>
     <Reference Include="Esent.Interop">
       <HintPath>..\packages\RavenDB.Database.1.0.960\lib\net40\Esent.Interop.dll</HintPath>
     </Reference>
@@ -182,6 +185,7 @@
     <Compile Include="StructureMapControllerFactory.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Readme\Elmah.txt" />
     <Content Include="Content\fonts\TEMPSITC.svg" />
     <Content Include="Content\Images\150x150.gif" />
     <Content Include="Content\Images\200x200.gif" />
@@ -191,6 +195,7 @@
     <Content Include="Content\Images\glyphicons-halflings.png" />
     <Content Include="Content\Images\happy-face.png" />
     <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\luke.jpg" />
     <Content Include="Content\Images\ruth.jpg" />
     <Content Include="Content\Images\SashaOnSwing.jpg" />
     <Content Include="Content\Images\swim-background.png" />

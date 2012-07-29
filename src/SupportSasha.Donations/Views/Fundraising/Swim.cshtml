@@ -9,17 +9,10 @@
     <div class="span2 swimmer">
         <h2>
             Luke Sampson</h2>
-        <img src='@Url.Image("swimming-pig.jpg")' alt="Luke" />
+        <img src='@Url.Image("luke.jpg")' alt="Luke" />
         <div class="swimmer-buttons">
             @Html.ActionLink("Sponsor me", "Index", "Donations", new { campaign = "Swim" }, new { @class = "btn btn-primary btn-large" })
         </div>
-    </div>
-    <div class="span8">
-        <p class="swim-description">
-            In October of this year, Sasha's uncle Luke (aka 'The pig') and his friend Ruth will be swimming
-            1000 lengths for Support Sasha; that's a distance of 25 km, more than twice the
-            length of... Lengths are priced at £1 each and they will only be swimming the lengths
-            they sell, so please give generously!</p>
     </div>
     <div class="span2 swimmer">
         <h2>
@@ -28,6 +21,15 @@
         <div class="swimmer-buttons">
             @Html.ActionLink("Sponsor me", "Index", "Donations", new { campaign = "Swim" }, new { @class = "btn btn-primary btn-large" })
         </div>
+    </div>
+</div>
+<div class="row-fluid">
+    <div class="span8">
+        <p class="swim-description">
+            In October of this year, Sasha's uncle Luke (aka 'The pig') and his friend Ruth
+            will be swimming 1000 lengths for Support Sasha; that's a distance of 25 km, more
+            than twice the length of... Lengths are priced at £1 each and they will only be
+            swimming the lengths they sell, so please give generously!</p>
     </div>
 </div>
 <div class="progressWrapper">
