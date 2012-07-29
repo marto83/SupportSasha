@@ -15,7 +15,7 @@ namespace SupportSasha.Donations.Helpers
             string newUrl = serverUrl;
             Uri originalUri = HttpContext.Current.Request.Url;
             newUrl = (forceHttps ? "https" : originalUri.Scheme) +
-                "://" + originalUri.Authority + newUrl;
+                "://" + originalUri.Host + newUrl;
             return newUrl;
         }
     }
