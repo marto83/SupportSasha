@@ -17,7 +17,7 @@ namespace SupportSasha.Donations.Controllers
     {
         public bool Success { get; set; }
         public string Name { get; set; }
-        public decimal Amount { get; set; }
+        public string Amount { get; set; }
     }
 
     public class DonationsController : BaseController
@@ -83,7 +83,7 @@ namespace SupportSasha.Donations.Controllers
             //Set values for the request back
             req.Method = "POST";
             req.ContentType = "application/x-www-form-urlencoded";
-            req.ContentLength = query.Length;
+            req.ContentLength = query.Length;   
 
             //Send the request to PayPal and get the response
             using (StreamWriter streamOut = new StreamWriter(req.GetRequestStream(), System.Text.Encoding.ASCII))
@@ -109,7 +109,7 @@ namespace SupportSasha.Donations.Controllers
                         results.Add(line.Split('=')[0], line.Split('=')[1]);
                     }
 
-                    return new PaypalDataResult { Success = true, Name = results["first_name"] + " " + results["last_name"], Amount = Convert.ToDecimal(results["payment_gross"])};
+                    return new PaypalDataResult { Success = true, Name = results["first_name"] + " " + results["last_name"], Amount = results["payment_gross"]};
                 }
                 else if (line == "FAIL")
                 {
