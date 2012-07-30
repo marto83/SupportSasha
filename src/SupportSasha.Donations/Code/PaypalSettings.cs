@@ -10,7 +10,7 @@ namespace SupportSasha.Donations.Code
     {
         public static bool IsSandbox
         {
-            get { return Convert.ToBoolean(ConfigurationManager.AppSettings["Paypayl:Sandbox"]); }
+            get { return Convert.ToBoolean(ConfigurationManager.AppSettings["Paypay:Sandbox"]); }
         }
 
         public static string PaypalUrl
