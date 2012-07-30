@@ -11,6 +11,7 @@ using System.Net;
 using System.IO;
 using SupportSasha.Donations.Code;
 using System.Dynamic;
+using System.Threading.Tasks;
 
 namespace SupportSasha.Donations.Controllers
 {
@@ -84,7 +85,7 @@ namespace SupportSasha.Donations.Controllers
             //Set values for the request back
             req.Method = "POST";
             req.ContentType = "application/x-www-form-urlencoded";
-            req.ContentLength = query.Length;   
+            req.ContentLength = query.Length;
 
             //Send the request to PayPal and get the response
             using (StreamWriter streamOut = new StreamWriter(req.GetRequestStream(), System.Text.Encoding.ASCII))
@@ -110,24 +111,31 @@ namespace SupportSasha.Donations.Controllers
                         results.Add(line.Split('=')[0], line.Split('=')[1]);
                     }
 
-                    return new PaypalDataResult { Success = true, Name = results["first_name"] + " " + results["last_name"], Amount = results["payment_gross"]};
+                    return new PaypalDataResult { Success = true, Name = results["first_name"] + " " + results["last_name"], Amount = results["payment_gross"] };
                 }
                 else if (line == "FAIL")
                 {
                     return new PaypalDataResult { Success = false };
                 }
             }
-           
+
 
             return new PaypalDataResult { Success = false };
         }
 
-        public ActionResult ThankYou()
+        public ActionResult ThankYou(decimal? amt, bool test = false)
         {
+            dynamic model = new ExpandoObject();
+            if (test)
+            {
+                model.Name = "Testing";
+                return View(model);
+            }
+
             string donationId = DonationId;
             if (string.IsNullOrEmpty(donationId))
             {
-               return Redirect("/");
+                return Redirect("/");
             }
 
             var result = ValidateDataTransfer();
@@ -135,15 +143,30 @@ namespace SupportSasha.Donations.Controllers
 
             if (result.Success)
             {
-                donation.Confirmed = true;
+                if (amt.HasValue)
+                {
+                    if (amt == donation.Amount)
+                        donation.Confirmed = true;
+                    else
+                        donation.Amount = amt.Value;
+
+                    donation.Confirmed = true;
+                }
             }
-            //send thank you email
-            //clear donation Id
+
+            //Start in a new thread so it doesn't slow down the thank you message
+            Task.Factory.StartNew(() =>
+            {
+                var mailer = new Mailer();
+                mailer.SendThankyouEmail(donation.Email);
+                mailer.SendNotificationEmail(donation.Name);
+            });
+
             DonationId = null;
 
-            dynamic model = new ExpandoObject();
+
             model.Name = donation.Name;
-           return View(model);
+            return View(model);
         }
 
 

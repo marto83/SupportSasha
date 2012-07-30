@@ -11,7 +11,7 @@ namespace SupportSasha.Donations.Code
         public static bool IsSandbox
         {
             get { return Convert.ToBoolean(ConfigurationManager.AppSettings["Paypal:Sandbox"]); }
-        }
+        }   
 
         public static string PaypalUrl
         {

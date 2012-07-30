@@ -146,7 +146,9 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\TargetsController.cs" />
     <Compile Include="Code\ISignInService.cs" />
+    <Compile Include="Code\Mailer.cs" />
     <Compile Include="Code\PaypalSettings.cs" />
+    <Compile Include="Code\Settings.cs" />
     <Compile Include="Code\SignInService.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -196,10 +198,12 @@
     <Content Include="Content\Images\happy-face.png" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Images\luke.jpg" />
+    <Content Include="Content\Images\paypallogo.png" />
     <Content Include="Content\Images\ruth.jpg" />
     <Content Include="Content\Images\SashaOnSwing.jpg" />
     <Content Include="Content\Images\swim-background.png" />
     <Content Include="Content\Images\swimming-pig.jpg" />
+    <Content Include="Content\Images\thankyou.jpg" />
     <Content Include="Content\Scripts\bootstrap-alert.js" />
     <Content Include="Content\Scripts\bootstrap-button.js" />
     <Content Include="Content\Scripts\bootstrap-carousel.js" />

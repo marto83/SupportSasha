@@ -2,7 +2,15 @@
     ViewBag.Title = "ThankYou";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Thank you @Model.Name</h2>
-
-<p>Thank you so much for your donation.</p>
+<h2>
+    Thank you @Model.Name</h2>
+<div class="fluid-row">
+    <div class="span3">
+        <p>
+            Thank you so much for your donation. All the money will go to fund my <a href="/donations/targets">therapies</a>. To keep up to date please follow and <a href="http://www.supportsasha.com/blog">blog</a>.</p>
+            <p>Help me spread the word share this website on <a href="http://facebook.com" target="_blank">Facebook</a> and <a href="http://www.twitter.com" target="_blank">Twitter</a>.</p>
+    </div>
+    <div class="span3">
+        <img src='@Url.Image("thankyou.jpg")' />
+    </div>
+</div>
