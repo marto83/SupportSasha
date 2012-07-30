@@ -64,7 +64,7 @@ namespace SupportSasha.Donations.Controllers
             query["currency_code"] = "GBP";
             query["bn"] = "PP-DonationsBF:btn_donateCC_LG.gif:NonHosted";
             query["amount"] = attempt.Amount.ToString();
-            query["return"] = WebHelpers.ResolveServerUrl("/donations/thankyou");
+            //query["return"] = WebHelpers.ResolveServerUrl("/donations/thankyou");
             builder.Query = ToQueryString(query);
             return builder.Uri.ToString();
         }
