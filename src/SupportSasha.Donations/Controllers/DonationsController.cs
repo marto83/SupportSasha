@@ -10,6 +10,7 @@ using SupportSasha.Donations.Helpers;
 using System.Net;
 using System.IO;
 using SupportSasha.Donations.Code;
+using System.Dynamic;
 
 namespace SupportSasha.Donations.Controllers
 {
@@ -140,7 +141,9 @@ namespace SupportSasha.Donations.Controllers
             //clear donation Id
             DonationId = null;
 
-           return View(new { Name = donation.Name });
+            dynamic model = new ExpandoObject();
+            model.Name = donation.Name;
+           return View(model);
         }
 
 
