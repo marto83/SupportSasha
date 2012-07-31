@@ -18,13 +18,18 @@ namespace SupportSasha.Donations.Models
         
         public decimal? OtherAmount { get; set; }
 
+        public decimal GetAmount()
+        {
+            return Amount ?? OtherAmount.Value;
+        }
+
         public string Message { get; set; }
         public bool DontShowName { get; set; }
         public string Campaign { get; set; }
 
         public static ValidationResult FinalCheck(DonationInput input, ValidationContext validationContext)
         {
-            if (input.Amount.Value == 0 && input.OtherAmount.HasValue == false)
+            if (input.Amount.HasValue == false && input.OtherAmount.HasValue == false)
                 return new ValidationResult("Please enter amount.");
             return ValidationResult.Success;
         }
