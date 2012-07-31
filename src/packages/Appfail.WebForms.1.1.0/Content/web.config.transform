@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <configSections>
+    <section name="appfail" type="AppfailReporting.AppfailConfiguration, AppfailReporting"/>
+  </configSections>
+  <system.web>
+    <pages>
+      <namespaces>
+        <add namespace="AppfailReporting"/>
+      </namespaces>
+    </pages>
+    <httpModules>
+      <add name="appfail" type="AppfailReporting.AppfailModule, AppfailReporting"/>
+    </httpModules>
+  </system.web>
+  <system.webServer>
+    <modules runAllManagedModulesForAllRequests="true">
+      <add name="appfail" type="AppfailReporting.AppfailModule, AppfailReporting"/>
+    </modules>
+    <validation validateIntegratedModeConfiguration="false"/>
+  </system.webServer>
+  <appfail apiToken="YOUR APPLICATION API TOKEN HERE" />
+</configuration>

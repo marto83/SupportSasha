@@ -30,5 +30,10 @@ namespace SupportSasha.Donations.Controllers
             return "testing email";
         }
 
+        public void Error()
+        {
+            throw new Exception("Welcome appfail");
+        }
+
     }
 }
