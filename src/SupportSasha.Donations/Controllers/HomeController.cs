@@ -19,7 +19,7 @@ namespace SupportSasha.Donations.Controllers
             decimal targetsSum = targets.Sum(x => x.Amount);
             model.TargetsTotal = targetsSum;
             model.Targets = targets;
-            model.Donations = donations;
+            model.Donations = donations.OrderByDescending(x => x.Date);
             model.DonationsTotal = donations.Sum(x => x.Amount);
             decimal donationsSum = donations.Sum(x => x.Amount);
             model.ProgressPercentage = (double)Math.Round(donationsSum / targetsSum * 100, 2);

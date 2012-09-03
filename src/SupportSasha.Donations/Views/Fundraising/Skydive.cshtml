@@ -1,0 +1,37 @@
+﻿@model EventProgressModel
+@{
+    ViewBag.Title = "Lee's sponsored sky dive";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>
+    Lee's sky dive</h1>
+<div class="row-fluid">
+    <div class="span2 swimmer">
+        <img src='http://placehold.it/100x150' alt="Lee cook" />
+        <br />
+        <br />
+           @Html.ActionLink("Sponsor me", "Index", "Donations", new { campaign = "Skydive" }, new { @class = "btn btn-primary btn-large" })
+    </div>
+</div>
+<div class="row-fluid">
+    <div class="span8">
+        <p class="swim-description">
+            On October 14 Lee has volutneered to do a tandem skydive and raise funds to help Sasha</p>
+    </div>
+</div>
+<div class="progressWrapper">
+    <h2>
+        Raised so far: &pound;@Model.CurrentAmount / &pound;@Model.Target</h2>
+    <div class="progress progress-striped">
+        <div class="bar"
+       style="width:  @Model.ProgressPercentage%;">
+        </div>
+    </div>
+</div>
+<div class="donationsWrapper">
+    <h3>
+        Donations</h3>
+    <ul class="donationList">
+        @Html.DisplayFor(x => x.Donations)
+    </ul>
+</div>

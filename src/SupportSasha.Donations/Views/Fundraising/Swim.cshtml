@@ -1,4 +1,4 @@
-﻿@model SwimProgressModel
+﻿@model EventProgressModel
 @{
     ViewBag.Title = "Swim";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -33,7 +33,7 @@
 </div>
 <div class="progressWrapper">
     <h2>
-        Progress: @Model.PurchasedSwimLanes / @Model.TotalSwimLanes lengths</h2>
+        Progress: @Model.CurrentAmount / @Model.Target lengths</h2>
     <div class="progress progress-striped">
         <div class="bar"
        style="width:  @Model.ProgressPercentage%;">

@@ -151,6 +151,7 @@
     <Compile Include="Areas\Admin\Controllers\DonationsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\TargetsController.cs" />
+    <Compile Include="Code\DonationsIndex.cs" />
     <Compile Include="Code\ISignInService.cs" />
     <Compile Include="Code\Mailer.cs" />
     <Compile Include="Code\PaypalSettings.cs" />
@@ -307,6 +308,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Fundraising\Skydive.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
