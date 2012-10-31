@@ -1,0 +1,39 @@
+﻿@model EventProgressModel
+@{
+    ViewBag.Title = "Daddy's day in a wheelchair";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>
+    Daddy's day in a wheelchair</h1>
+<div class="row-fluid">
+    <div class="span2 swimmer">
+        <img src='@Url.Image("Wheelchair.jpg")' alt="Daddy in a wheelchair" />
+        <br />
+        <br />
+           @Html.ActionLink("Sponsor me", "Index", "Donations", new { campaign = "Wheelchair" }, new { @class = "btn btn-primary btn-large" })
+    </div>
+</div>
+<div class="row-fluid">
+    <div class="span8">
+        <p class="swim-description">
+            When I grow up I will spend most of my time in a wheelchair. Daddy is going to spend a full day in one to see what it will feel like for me. He will take the train to work, get to his office and spend the whole day getting around in his chair. He is not allowed to use his legs at all. Once work is finished he will get back on the train and get home.
+            Please sponsor him to help me raise funds for my continued therapy. 
+            </p>
+    </div>
+</div>
+<div class="progressWrapper">
+    <h2>
+        Raised so far: &pound;@Model.CurrentAmount / &pound;@Model.Target</h2>
+    <div class="progress progress-striped">
+        <div class="bar"
+       style="width:  @Model.ProgressPercentage%;">
+        </div>
+    </div>
+</div>
+<div class="donationsWrapper">
+    <h3>
+        Donations</h3>
+    <ul class="donationList">
+        @Html.DisplayFor(x => x.Donations)
+    </ul>
+</div>
