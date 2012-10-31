@@ -211,6 +211,7 @@
     <Content Include="Content\Images\swim-background.png" />
     <Content Include="Content\Images\swimming-pig.jpg" />
     <Content Include="Content\Images\thankyou.jpg" />
+    <Content Include="Content\Images\wheelchair.jpg" />
     <Content Include="Content\Scripts\bootstrap-alert.js" />
     <Content Include="Content\Scripts\bootstrap-button.js" />
     <Content Include="Content\Scripts\bootstrap-carousel.js" />
@@ -311,6 +312,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Fundraising\Skydive.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Fundraising\Wheelchair.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
