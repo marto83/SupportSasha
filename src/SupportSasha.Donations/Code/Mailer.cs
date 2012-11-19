@@ -35,12 +35,12 @@ namespace SupportSasha.Donations.Code
                 client.Send(message);
             }
         }
-        public void SendNotificationEmail(string name)
+        public void SendNotificationEmail(string name, decimal amount)
         {
             try
             {
                 MailMessage message = new MailMessage("donations@supportsasha.com", "marto83@gmail.com");
-                message.Subject = String.Format("New donation from {0}", name);
+                message.Subject = String.Format("New donation from {0} for {1}", name, amount);
                 message.IsBodyHtml = false;
                 message.Body = "Yay there is a new donation... http://donations.supportsasha.com";
 

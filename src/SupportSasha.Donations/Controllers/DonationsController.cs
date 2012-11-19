@@ -159,7 +159,7 @@ namespace SupportSasha.Donations.Controllers
             {
                 var mailer = new Mailer();
                 mailer.SendThankyouEmail(donation.Email);
-                mailer.SendNotificationEmail(donation.Name);
+                mailer.SendNotificationEmail(donation.Name, donation.Amount);
             });
 
             DonationId = null;
