@@ -1,0 +1,41 @@
+﻿@model EventProgressModel
+@{
+    ViewBag.Title = "Lee's sponsored sky dive";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>
+    Lee's sky dive</h1>
+<div class="row-fluid">
+    <div class="span2 swimmer">
+        <img src='https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-ash4/408581_10200333980735809_861091351_n.jpg' alt="Ilian" />
+        <br />
+        <br />
+           @Html.ActionLink("Sponsor me", "Index", "Donations", new { campaign = "Ilian" }, new { @class = "btn btn-primary btn-large" })
+    </div>
+</div>
+<div class="row-fluid">
+    <div class="span8">
+        <p class="swim-description">
+            I will eat only pureed food for the week starting April 22nd. To make it more interesting I’m going to blog it all, take pictures and each night, with the help of my mastermind chef of a flatmate Andrew Ross, we’re going to come up with ways to turn normal foods like pizza, pasta or maybe even steak into baby friendly food. We will even take suggestions.</P>
+
+<p class="swim-description">I will do day of sponsored silence on April 26th from the moment I wake up until going to bed in the evening. Because it is exam period here in Glasgow I normally wouldn’t see many people, but just to make it worth this I will go out to an Open Mic night that a lot of my friends normally go to.</p>
+        <p class="swim-description">
+This little guy means the world to my cousins and the whole family, who are all doing their very best to help him. He is a little angel and a very cheerful and smiley one considering. Please help me raise £1000 pounds for my cousin and help him move around a bit easier and feel more comfortable, so his family can see him smile even more. Please help him and his family by donating, every little bit counts and this cheery little bugger is worth every little bit of it.</p>
+    </div>
+</div>
+<div class="progressWrapper">
+    <h2>
+        Raised so far: &pound;@Model.CurrentAmount / &pound;@Model.Target</h2>
+    <div class="progress progress-striped">
+        <div class="bar"
+       style="width:  @Model.ProgressPercentage%;">
+        </div>
+    </div>
+</div>
+<div class="donationsWrapper">
+    <h3>
+        Donations</h3>
+    <ul class="donationList">
+        @Html.DisplayFor(x => x.Donations)
+    </ul>
+</div>
