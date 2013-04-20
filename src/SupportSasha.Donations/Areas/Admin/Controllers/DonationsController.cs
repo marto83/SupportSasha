@@ -8,9 +8,9 @@ namespace SupportSasha.Donations.Areas.Admin.Controllers
 {
     public class DonationsController : AdminController
     {
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
-            var donations = RavenSession.Query<Donation>().ToList();
+            var donations = RavenSession.Query<Donation>().OrderByDescending(x => x.Date).Skip((page - 1)*50).Take(50).ToList();
             return View(donations);
         }
 

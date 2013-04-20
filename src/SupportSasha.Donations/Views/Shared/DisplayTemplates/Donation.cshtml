@@ -1,7 +1,7 @@
 ﻿@model Donation
            
 <li>
-    <img src="@Html.GetUserImageByEmail(Model.Email)" />
+    <img src="@Html.GetUserImageByEmail(Model.DontShowName ? "" : Model.Email)" />
     <div class="donationMessage">
         <p>@Model.Message</p>
         <span class="small">Donated by <strong class="sashasFont">@Model.GetPublicName()</strong> @Html.HumanDate(Model.Date)</span>
