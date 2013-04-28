@@ -46,5 +46,21 @@ namespace SupportSasha.Donations.Areas.Admin.Controllers
             return RedirectToAction("Index");
             
         }
+
+        [HttpPost]
+        public ActionResult Delete(string id)
+        {
+            var donation = RavenSession.Load<Donation>(id);
+            if (donation != null)
+            {
+                RavenSession.Delete(donation);
+                RavenSession.SaveChanges();
+                SetMessage("Donation deleted successfully");
+                return RedirectToAction("Index");
+            }
+            SetError("Donation {0} not found", id);
+            return RedirectToAction("Index");
+
+        }
     }
 }

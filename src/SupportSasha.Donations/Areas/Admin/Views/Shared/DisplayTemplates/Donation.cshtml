@@ -19,6 +19,13 @@ Campaign: @Model.CampaignName
     }
 }
 
+    @using (var form = Html.BeginForm("Delete", "Donations", FormMethod.Post, new { @class = "form-inline" }))
+    {
+        <input type="hidden" name="id" value="@Model.Id" />
+    
+        <button class="btn btn-danger">Delete</button>
+    }
+
 </p>
 <span class="donationAmount sashasFont">£ @Model.Amount</span>
 </li>
