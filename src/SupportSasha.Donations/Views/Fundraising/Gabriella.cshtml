@@ -1,0 +1,44 @@
+﻿@model EventProgressModel
+@{
+    ViewBag.Title = "Gabriella's half marathon";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Gabriella's half marathon</h1>
+<div class="row-fluid">
+    <div class="span2 swimmer">
+        <img src='/Content/Images/Gabriella.jpg' alt="Gabriella and Sasha" />
+        <br />
+        <br />
+        @Html.ActionLink("Sponsor me", "Index", "Donations", new { campaign = "Gabriella" }, new { @class = "btn btn-primary btn-large" })
+    </div>
+    <div class="span8">
+        <p>
+            Hello everyone,
+
+I have a very special little friend called Sasha Georgiev who is almost 4yrs old. Despite having severe cerebral palsy which means he cannot use his arms, legs, or manipulate his body independently into different positions effectively he is a very brave cheerful boy who is often smiling and loves a cuddle.
+        </p>
+        <p>
+            In his short life he has experienced more pain and discomfort than many of us will ever know and in September he is due to have a major orthopaedic operation involving breaking both thigh bones and re angling them, then inserting metal plates in order to correct his hip dislocations. Undoubtedly this will involve a great deal of pain and a long recovery.
+        </p>
+        <p>
+            He loves to be carried but as he is getting bigger and heavier an electronic wheelchair will be the most comfortable mode of transport, providing him with the stability and support his hips need, as well as offering him the independence he now needs and seeks. As the NHS are not able to fund this sort of wheelchair, the cost of £15,000 needs to be raised. So on Sunday 29th September I am going to attempt to run the Ealing half marathon in a bid to help raise some money.
+        </p>
+        <p>
+            I am fairly new to running and have only just managed to accomplish finishing a 10k run! I have just 4 weeks to train to try and complete twice this distance. It will be a huge challenge for me, much to the astonishment and amusement of some family and friends who know that I struggle to even run for a bus in the mornings! However I know that the difficulties I will face pale into significance compared to those that Sasha faces daily. Please support me in helping Sasha and his family by donating, as every little bit counts and will make a huge difference to this little mans life.
+        </p>
+    </div>
+</div>
+<div class="progressWrapper">
+    <h2>Raised so far: &pound;@Model.CurrentAmount / &pound;@Model.Target</h2>
+    <div class="progress progress-striped">
+        <div class="bar"
+       style="width:  @Model.ProgressPercentage%;">
+        </div>
+    </div>
+</div>
+<div class="donationsWrapper">
+    <h3>Donations</h3>
+    <ul class="donationList">
+        @Html.DisplayFor(x => x.Donations)
+    </ul>
+</div>

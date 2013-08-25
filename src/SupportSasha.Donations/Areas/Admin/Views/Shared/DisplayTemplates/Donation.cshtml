@@ -14,7 +14,6 @@ Campaign: @Model.CampaignName
     using (var form = Html.BeginForm("Confirm", "Donations", FormMethod.Post, new { @class = "form-inline" }))
     {
         <input type="hidden" name="id" value="@Model.Id" />
-    
         <button class="btn btn-success">Confirm</button>
     }
 }
