@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using System.Web.Security;
 using System.Web;
-using Newtonsoft.Json;
+using Raven.Imports.Newtonsoft.Json;
 using SupportSasha.Donations.Models;
 
 namespace SupportSasha.Donations.Code
