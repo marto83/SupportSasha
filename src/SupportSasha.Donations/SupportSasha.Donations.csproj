@@ -193,6 +193,7 @@
     <Content Include="Content\Images\200x200.gif" />
     <Content Include="Content\Images\350x150.gif" />
     <Content Include="Content\Images\bg-footer-credits.png" />
+    <Content Include="Content\Images\chris.jpg" />
     <Content Include="Content\Images\DonationsSasha.jpg" />
     <Content Include="Content\Images\gabriella.jpg" />
     <Content Include="Content\Images\glyphicons-halflings-white.png" />
@@ -200,6 +201,7 @@
     <Content Include="Content\Images\happy-face.png" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Images\luke.jpg" />
+    <Content Include="Content\Images\martin-and-sasha.JPG" />
     <Content Include="Content\Images\paypallogo.png" />
     <Content Include="Content\Images\ruth.jpg" />
     <Content Include="Content\Images\SashaOnSwing.jpg" />
@@ -315,6 +317,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Fundraising\Gabriella.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Fundraising\Jump.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -9,28 +9,8 @@
     <img src="@Url.Image("SashaOnSwing.jpg")" />
     <p>
         I'm Sasha and I have cerebral palsy. Thank you for visiting my donations website.
-        Currently I am fundraising for Dolphin and Stem cell therapy. I also have a blog
-        where you can find out more about me as well as helpful resouces</p>
+        I have started a therapy called Advanced Biomechanical Rehabilitation and I go to Belgium four times a year for my progress to be monitored. I currently have a powered wheelchair called a Wizzy Bug, but I will grow out of it within the next year so I will need to trade it in for a larger model! I would love to fundraise enough money to continue with my ABR trips and to get myself some cool wheels.</p>
     <p>
         @Html.ActionLink("Donate", "Index", "Donations", null, new { @class = "btn btn-primary btn-large" })
         &nbsp;&nbsp; or&nbsp;&nbsp; @Html.ActionLink("Learn more", "Targets", "Donations", null, new { @class = "btn" })</p>
-</div>
-<section id="donationTarget">
-<div class="progressWrapper">
-    <h2>Fundraising: &pound;@Model.DonationsTotal / &pound;@Model.TargetsTotal</h2>
-    <div class="progress progress-striped">
-  <div class="bar"
-       style="width:  @Model.ProgressPercentage%;"></div>
-</div>
-    @Html.ActionLink("more information", "Targets", "Donations", null, new { @class = "targetBreakdown" })
-</div>
-
-</section>
-<br />
-<div class="donationsWrapper">
-    <h3>
-        Donations</h3>
-    <ul class="donationList">
-        @Html.DisplayFor(x => x.Donations)
-    </ul>
 </div>

@@ -1,0 +1,25 @@
+﻿@model EventProgressModel
+@{
+    ViewBag.Title = "Lee's sponsored sky dive";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>
+    Martin and Chris skydive on 6 April</h1>
+<div class="row-fluid">
+    <div class="span2 swimmer">
+        <img src='/Content/Images/martin-and-sasha.JPG' alt="Martin" />
+        <br />
+        <br />
+           @Html.ActionLink("Sponsor me", "Index", "Donations", new { campaign = "Skydive" }, new { @class = "btn btn-primary btn-large" })
+    </div>
+    <div class="span8">
+        <p class="">
+        On April 6 Chris and Daddy will jump from an aeroplane to raise money for my therapies. Please be generous.
+    </div>
+    <div class="span2 swimmer">
+        <img src='/Content/Images/chris.jpg' alt="Chris" />
+        <br />
+        <br />
+           @Html.ActionLink("Sponsor me", "Index", "Donations", new { campaign = "Skydive" }, new { @class = "btn btn-primary btn-large" })
+    </div>
+</div>

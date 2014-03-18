@@ -13,24 +13,7 @@ namespace SupportSasha.Donations.Controllers
     {
         public ActionResult Index()
         {
-            IEnumerable<Target> targets = RavenSession.Query<Target>().ToList();
-            IEnumerable<Donation> donations = RavenSession.Query<Donation>().Where(x => x.Confirmed);
-            HomeViewModel model = new HomeViewModel();
-            decimal targetsSum = targets.Sum(x => x.Amount);
-            model.TargetsTotal = targetsSum;
-            model.Targets = targets;
-            model.Donations = donations.OrderByDescending(x => x.Date);
-            model.DonationsTotal = donations.Sum(x => x.Amount);
-            decimal donationsSum = donations.Sum(x => x.Amount);
-            if (targetsSum > 0)
-            {
-            model.ProgressPercentage = (double)Math.Round(donationsSum / targetsSum * 100, 2);
-                }
-            else
-            {
-                model.ProgressPercentage = 0; 
-            }
-            return View(model);
+            return View();
         }
     }
 }
