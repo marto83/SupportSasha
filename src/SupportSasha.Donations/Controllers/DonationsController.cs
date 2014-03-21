@@ -34,7 +34,7 @@ namespace SupportSasha.Donations.Controllers
 
         public ActionResult Index(string campaign = "")
         {
-            return Redirect("http://www.justgiving.com/supportsasha/donate?amount=25&exitUrl=" + Url.Encode(Url.SiteRoot()));
+            return Redirect("http://www.justgiving.com/supportsasha/donate?amount=25");
         }
 
         
