@@ -230,6 +230,8 @@
     <Content Include="Content\Images\swimming-pig.jpg" />
     <Content Include="Content\Images\thankyou.jpg" />
     <Content Include="Content\Images\wheelchair.jpg" />
+    <Content Include="Content\Images\zara1.jpg" />
+    <Content Include="Content\Images\zara2.jpg" />
     <Content Include="Content\Scripts\bootstrap-alert.js" />
     <Content Include="Content\Scripts\bootstrap-button.js" />
     <Content Include="Content\Scripts\bootstrap-carousel.js" />
