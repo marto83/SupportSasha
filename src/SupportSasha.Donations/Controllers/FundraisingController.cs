@@ -22,5 +22,10 @@ namespace SupportSasha.Donations.Controllers
         {
             return View();
         }
+
+        public ActionResult Zara()
+        {
+            return View();
+        }
     }
 }

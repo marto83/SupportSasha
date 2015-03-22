@@ -1,0 +1,29 @@
+﻿@model EventProgressModel
+@{
+    ViewBag.Title = "Tough Zara helps Sasha";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>
+    Tough Zara</h1>
+
+<div class="row-fluid">
+    <p style="font-size: 1.2em;">
+        I am Zara and will be running in a 10k race and later this spring in the tough mudder. I'm doing all this to help Sasha raise funds to continue his therapies. 
+    </p>
+    </div>
+<div class="row-fluid">
+        <img class="span2" style="float: left; padding-left: 0;margin-left: 0;  " src='/Content/Images/zara1.jpg' alt="Zara Sproul" />
+    <div class="span2 swimmer">
+         <img src='/Content/Images/zara2.jpg' alt="Zara Sproul" />
+        <br />
+    </div>
+</div>
+<div class="row-fluid">
+    <div class="span8 " style="margin-top: 2em">
+        <p style="font-size: 1.2em;">
+            It will be guelling challenge. To find out more about what the money will be used go to <a target="_blank" href="https://www.justgiving.com/supportsasha/">Sasha's justgiving page</a>
+        </p>
+                   @Html.ActionLink("Sponsor me", "Index", "Donations", new { campaign = "Skydive" }, new { @class = "btn btn-primary btn-large" })
+
+    </div>
+</div>
